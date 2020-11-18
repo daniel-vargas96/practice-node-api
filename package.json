@@ -21,5 +21,13 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniel-vargas96/practice-node-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/daniel-vargas96/practice-node-api/issues"
+  },
+  "homepage": "https://github.com/daniel-vargas96/practice-node-api#readme"
 }
