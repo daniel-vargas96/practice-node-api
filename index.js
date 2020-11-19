@@ -10,6 +10,7 @@ PORT = process.env.NODE_ENV === 'test' ? 5001 : 5000;
 app.use(express.json());
 
 app.get('/api/data', (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
   res.json(data.notes);
 });
 
