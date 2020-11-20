@@ -5,8 +5,6 @@ const staticMiddleware = require('./static-middleware');
 const ClientError = require('./client-error');
 const app = express();
 
-// let { NODE_ENV = 'development', PORT = 5000 } = process.env
-// PORT = process.env.NODE_ENV === 'test' ? 5001 : 5000;
 const port = process.env.PORT || 5000;
 
 app.use(express.json());
