@@ -3,9 +3,40 @@ const tbody = document.getElementById("tableBody");
 const buttonParent = document.getElementById("btns");
 const tableHeader = document.getElementById("table-header");
 const tableTitle = document.getElementById("table-title");
+const notesButton = document.getElementById("btn");
+const searchInput = document.getElementById("id-input");
+const searchButton = document.getElementById("search-btn");
+const id = document.getElementById("note-id");
+const content = document.getElementById("content");
+const errorMessage = document.getElementById("error-message");
 
 
-handleNotesCall();
+
+
+// handleNotesCall();
+notesButton.addEventListener("click", () => {
+  handleNotesCall();
+});
+
+//handleSingleNoteCall()
+searchButton.addEventListener("click", () => {
+  handleSingleNoteCall();
+})
+
+
+function handleSingleNoteCall() {
+  $.ajax({
+    method: "GET",
+    url: `http://localhost:5000/api/data/${searchInput.value}`,
+    error: error => {
+      errorMessage.textContent = 'ID NOT FOUND!';
+    },
+    success: data => {
+      getSingleNote(data);
+    }
+  })
+}
+
 
 function handleNotesCall() {
   $.ajax({
@@ -33,4 +64,9 @@ function getNotes(data) {
     row.append(noteID, noteContent);
     tbody.append(row);
   }
+}
+
+function getSingleNote(data) {
+  id.textContent = data.id;
+  content.textContent = data.content;
 }

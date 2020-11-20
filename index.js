@@ -20,7 +20,8 @@ app.get('/api/data/:id', (req, res, next) => {
   if (!notes[id]) {
     res.status(404).send('The note with the given ID was not found')
   }
-  res.json(data.notes[id]);
+  res.header("Access-Control-Allow-Origin", "*");
+  res.json(data.notes[id - 1]);
 });
 
 app.post('/api/data', (req, res, next) => {
